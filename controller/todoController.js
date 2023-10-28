@@ -6,7 +6,7 @@ class Controller {
       const allTodo = await Todo.findAll()
 
       res.status(200).json({
-        message: 'success',
+        message: 'Success to Get All Data Todo',
         data: allTodo
       })
     } catch {
@@ -21,8 +21,10 @@ class Controller {
         todo: req.body.todo,
         address: req.body.address
       })
-      res.status(200).json(postTodo)
-      console.log(postTodo)
+      res.status(200).json({
+        message: 'Success To Post Todo',
+        data: postTodo
+      })
     } catch {
       console.log('Error')
     }
@@ -32,7 +34,10 @@ class Controller {
     try {
       const { id } = req.params
       const todo = await Todo.findByPk(id)
-      res.status(200).json(todo)
+      res.status(200).json({
+        message: 'Succes To get detail todo',
+        data: todo
+      })
     } catch {
       console.log('Error')
     }
